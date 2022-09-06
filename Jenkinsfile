@@ -9,7 +9,7 @@ pipeline{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '7943480f-08e4-47be-9ab7-5db422a6dffc', url: 'https://bitbucket.org/anilksin/scp-tf-module-vpc']]])
             }
         }
-        stage('Terraform Init'){
+        stage('Terraform init'){
             steps{
                 sh ("terraform init");
             }
