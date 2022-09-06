@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    stages{
+        stage('Dependency check'){
+            echo 'checking the vulnerability'
+        }
+        stage('Code Build'){
+            echo 'Jenkins is Building'
+        }
+        stage('Sonar scan'){
+            echo 'Sonar analysis'
+        }
+        stage('Build and push'){
+            echo 'Building and pushing image to Jfrog'
+        }
+        stage('Deployment to K8s'){
+            echo 'Deploying the image to K8s cluster'
+        }
+    }
+}  
