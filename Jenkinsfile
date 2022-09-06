@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('git checkout'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '7943480f-08e4-47be-9ab7-5db422a6dffc', url: 'https://bitbucket.org/anilksin/scp-tf-module-vpc']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '9a45c966-7b10-4fc4-a328-5a26f8411b77', url: 'https://github.com/Anilsinghkumar/master']]])
             }
         }
         stage('Terraform init'){
