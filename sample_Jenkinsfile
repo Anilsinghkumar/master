@@ -1,25 +1,31 @@
 pipeline{
     agent any
     stages{
-        stage('git checkout'){
+        stage('Dependency check'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '9a45c966-7b10-4fc4-a328-5a26f8411b77', url: 'https://github.com/Anilsinghkumar/master']]])
+                echo 'checking the vulnerability'
             }
         }
-        stage('Dependency check'){
-            echo 'checking the vulnerability'
-        }
         stage('Code Build'){
-            echo 'Jenkins is Building'
+            steps{
+                echo 'Jenkins is Building'
+            }
         }
         stage('Sonar scan'){
-            echo 'Sonar analysis'
+            steps{
+                echo 'Sonar analysis'
+            }
         }
         stage('Build and push'){
-            echo 'Building and pushing image to Jfrog'
+            steps{
+                echo 'Building and pushing image to Jfrog'
+            }
         }
         stage('Deployment to K8s'){
-            echo 'Deploying the image to K8s cluster'
+            steps{
+                echo 'Deploying the image to K8s cluster'
+            }
+            
         }
     }
 }  
