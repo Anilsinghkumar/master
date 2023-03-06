@@ -24,4 +24,4 @@ pipelineStages:
       scriptSource: INLINE
       inlineScript: |
         cd app
-        npm run build
+        npm run build 
