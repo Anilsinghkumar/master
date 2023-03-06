@@ -1,0 +1,27 @@
+name: my-git-pipeline
+description: My Git pipeline
+pipelineStages:
+- stageName: Clone
+  taskDefinitions:
+  - name: git-clone
+    type: GIT_CLONE
+    gitClone:
+      url: https://github.com/myorg/myrepo.git
+      branch: main
+      directory: app
+- stageName: Build
+  taskDefinitions:
+  - name: npm-install
+    type: SHELL_SCRIPT
+    shellScript:
+      scriptSource: INLINE
+      inlineScript: |
+        cd app
+        npm install
+  - name: npm-build
+    type: SHELL_SCRIPT
+    shellScript:
+      scriptSource: INLINE
+      inlineScript: |
+        cd app
+        npm run build
